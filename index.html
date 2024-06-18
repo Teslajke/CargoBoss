@@ -47,13 +47,31 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script>
+    <!-- <script>
       function isIPhone() {
         return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
       }
 
       if (isIPhone()) {
         window.location.href = "https://cargov.ru/"; //
+      }
+    </script> -->
+    <script>
+      function isIPhone() {
+        return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+      }
+
+      if (isIPhone()) {
+        document.addEventListener("DOMContentLoaded", () => {
+          const elements = document.querySelectorAll("*");
+          elements.forEach((element) => {
+            const style = window.getComputedStyle(element);
+            if (style.color === "rgb(255, 255, 255)") {
+              // Check if the text color is white
+              element.style.color = "black"; // Change the text color to black
+            }
+          });
+        });
       }
     </script>
 
